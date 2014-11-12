@@ -1,0 +1,18 @@
+[
+  {
+    "author": "Mira Storm",
+    "postText": "When the component is first created, we want to GET some JSON from the server and update the state to reflect the latest data. In a real application this would be a dynamic endpoint, but for this example, we will use a static JSON file to keep things simple",
+    "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Meng.png",
+    "timeStamp": "5h",
+    "id": "1",
+    "numberOfComments": "4"
+  },
+    {
+    "author": "Roma Storm",
+    "postText": "Post q2!",
+    "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Guru%20Pathik.png",
+    "timeStamp": "5h",
+    "id": "2",
+    "numberOfComments": "2"
+  }
+]

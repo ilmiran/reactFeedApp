@@ -1,9 +1,7 @@
 var App = React.createClass({
   getInitialState: function() {
       return {mainView: true,
-              selectedFeed : '',
-              currentUserId: '123456',
-              currentUserIcon : 'http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ty%20Lee.png'};
+              selectedFeed : ''}
   },
   handleBackButtonClick: function() {
     this.setState({mainView: true,
@@ -13,16 +11,20 @@ var App = React.createClass({
     this.setState({mainView: false,
               selectedFeed : item});
   },
+  handleNewComment: function(item) {
+    this.setState({selectedFeed : item});
+  },
   render: function() {
+    var userIcon = currentUser.userIcon;
     return (
       <div> 
       <header>
         {!this.state.mainView ? <button onClick={this.handleBackButtonClick} className="customButton">Back</button> : null } 
-        <img src={this.state.currentUserIcon}/>
+        <img src={userIcon}/>
       </header>
       <div>     
           {this.state.mainView ?
-          <Feed userId={this.state.currentUserId} url="posts" handleClick={this.handleFeedClick} pollInterval={2000}/> : <DetailView feedItem={this.state.selectedFeed}/>}
+          <Feed url="posts" handleClick={this.handleFeedClick}/> : <DetailView handleNewComment={this.handleNewComment} feedItem={this.state.selectedFeed}/>}
           </div>
       </div>
     );
@@ -30,57 +32,40 @@ var App = React.createClass({
 });
 
 var DetailView = React.createClass({
+    update: function(data) {
+      this.props.handleNewComment(data);
+    },
     render: function() {
       var feedItem = this.props.feedItem;
         return (
        <div><FeedItem feed={feedItem}>
           {feedItem.timeStamp}
        </FeedItem>
-       <CommentBox feedItem={feedItem} pollInterval={2000} url="posts"/></div>
+       <CommentBox update={this.update} feedItem={feedItem} url="posts"/></div>
         );
     }
 });
 
   var CommentBox = React.createClass({
-  loadCommentsFromServer: function() {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
-  componentDidMount: function() {
-    this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
-  },
   handleCommentSubmit: function(comment) {
-    var posts = this.state.data;
-    var newComments = posts.concat([comment]);debugger;
-    this.setState({data: newComments});
+    var id =this.props.feedItem.id; 
+    this.setState(null ,function() {
       $.ajax({
-     url: this.props.url,
+      url: this.props.url+ '/' +id,
       dataType: 'json',
       type: 'POST',
       data: comment,
       success: function(data) {
-        this.setState({data: data});
+        this.props.update(data);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
+     });
     });
   },
   getInitialState: function() {
     return {data: []};
-  },
-  componentDidMount: function() {
-    this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
   },
   render: function() {
     return (
@@ -97,7 +82,7 @@ var DeleteButton = React.createClass({
       this.props.handleDelete();
     },
     render: function() {
-        var deleteNode = ((this.props.currentUserId==this.props.feed.authorId) ? <button className="deleteButton"  onClick={this.whenClickedDelete}>x</button>: null);
+        var deleteNode = ((currentUser.userId==this.props.feed.authorId) ? <button className="deleteButton"  onClick={this.whenClickedDelete}>x</button>: null);
         return ( deleteNode );
     }
 });
@@ -121,7 +106,6 @@ var Feed = React.createClass({
   },
   componentWillMount: function() {
     this.loadFeedItemFromServer();
-    setInterval(this.loadFeedItemFromServer, this.props.pollInterval);
   },
   whenClicked: function(feedItem) {
     this.props.handleClick(feedItem);
@@ -152,13 +136,11 @@ var Feed = React.createClass({
   },
   render: function() {
     var self = this;
-    var currentUserId = this.props.userId;
     var feedItemNodes = this.state.data.map(function (feedItem) {
       return (
         <div>
-        <FeedItem whenClicked={self.whenClicked.bind(null,feedItem)} onDelete={self.onDelete.bind(null,feedItem)} currentUserId={currentUserId}
+        <FeedItem whenClicked={self.whenClicked.bind(null,feedItem)} onDelete={self.onDelete.bind(null,feedItem)}
          feed={feedItem}>
-          {feedItem.comments.length}
         </FeedItem>
         </div>
       );
@@ -182,7 +164,7 @@ var FeedItem = React.createClass({
     var commentCount= this.props.feed.comments.length;
     return (
       <div className="feedItemContainer">
-        <DeleteButton handleDelete={this.handleDelete} currentUserId={this.props.currentUserId} currentPostAuthorId={this.props.authorId} feed={this.props.feed}/>
+        <DeleteButton handleDelete={this.handleDelete} currentPostAuthorId={this.props.authorId} feed={this.props.feed}/>
         <div className="postAuthor">
           <img src={this.props.feed.iconUrl}/> 
           {this.props.feed.author}
@@ -199,9 +181,9 @@ var FeedItem = React.createClass({
 
 var CommentForm = React.createClass({
   handleSubmit: function(e) {
-    e.preventDefault();
-    var author = "Ilmira";
-    var iconUrl = "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Matured%20Aang.png";
+    e.preventDefault(); 
+    var author = currentUser.userName;
+    var iconUrl = currentUser.userIcon;
     var text = this.refs.text.getDOMNode().value.trim();
     if (!text) {
       return;
@@ -255,6 +237,11 @@ var Comment = React.createClass({
   }
 });
 
+var currentUser= {
+                userId: '123456',
+                userIcon: 'http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ty%20Lee.png',
+                userName: 'Mira Storm'
+              };
 React.render(
    <App/>,
   document.getElementById('content')

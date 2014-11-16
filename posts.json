@@ -1,18 +1,50 @@
 [
   {
     "author": "Mira Storm",
+    "authorId": "123456",
     "postText": "When the component is first created, we want to GET some JSON from the server and update the state to reflect the latest data. In a real application this would be a dynamic endpoint, but for this example, we will use a static JSON file to keep things simple",
-    "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Meng.png",
+    "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ty%20Lee.png",
     "timeStamp": "5h",
     "id": "1",
-    "numberOfComments": "4"
+    "numberOfComments": "4",
+    "comments" : [{
+            "author": "Ilmira Nugumanova",
+            "text": "Normal comment",
+            "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ursa.png",
+            "timeStamp": "5h"
+            },
+            {
+             "author": "Elena Nugumanova",
+             "text": "uu",
+            "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ursa.png",
+            "timeStamp": "5h"
+            }]
   },
     {
     "author": "Roma Storm",
-    "postText": "Post q2!",
+    "authorId": "12345ee6",
+    "postText": "Post q2!  component is first created, we want to GET some JSON  component is first created, we want to GET some JSON",
     "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Guru%20Pathik.png",
     "timeStamp": "5h",
     "id": "2",
-    "numberOfComments": "2"
+    "numberOfComments": "2",
+    "comments" : [{
+            "author": "Ilmira Nugumanova",
+            "text": "Normal comment",
+            "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ursa.png",
+            "timeStamp": "5h"
+            }]
+
+  },
+
+      {
+    "author": "Pelmeni",
+    "authorId": "1234564",
+    "postText": "Post q2!  component is first created, we want to GET some JSON  component is first created, we want to GET some JSON",
+    "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Guru%20Pathik.png",
+    "timeStamp": "5h",
+    "id": "2",
+    "numberOfComments": "2",
+     "comments" : []
   }
 ]

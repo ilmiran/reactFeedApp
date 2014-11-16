@@ -111,20 +111,13 @@ var Feed = React.createClass({
     this.props.handleClick(feedItem);
   },
   onDelete: function(feedItem) {
-    var postId = feedItem.id;debugger;
-    var posts = null;//TODOdebugger
-    var newPosts = posts.filter(function(post) {
-            return posts.id != postId;
-        });
-    this.setState({data: newPosts}, function() {
-      // `setState` accepts a callback. To avoid (improbable) race condition,
-      // `we'll send the ajax request right after we optimistically set the new
-      // `state.
+    var id = feedItem.id; 
+    this.setState(null, function() {
       $.ajax({
-        url: this.props.url,
+        url: this.props.url+ '/' +id,
         dataType: 'json',
         type: 'DELETE',
-        data: comment,
+        data: feedItem,
         success: function(data) {
           this.setState({data: data});
         }.bind(this),

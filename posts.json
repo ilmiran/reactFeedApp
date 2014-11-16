@@ -1,50 +1,69 @@
 [
   {
-    "author": "Mira Storm",
+    "author": "John Smith",
     "authorId": "123456",
-    "postText": "When the component is first created, we want to GET some JSON from the server and update the state to reflect the latest data. In a real application this would be a dynamic endpoint, but for this example, we will use a static JSON file to keep things simple",
-    "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ty%20Lee.png",
+    "postText": "Haec bene dicuntur, nec ego repugno, sed inter sese ipsa pugnant. Memini me adesse P. Summum ením bonum exposuit vacuitatem doloris; Ex ea difficultate illae fallaciloquae, ut ait Accius, malitiae natae sunt. Quae quo sunt excelsiores, eo dant clariora indicia naturae. An ea, quae per vinitorem antea consequebatur, per se ipsa curabit?",
+    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man2.png",
     "timeStamp": "5h",
     "id": "1",
-    "numberOfComments": "4",
     "comments" : [{
-            "author": "Ilmira Nugumanova",
-            "text": "Normal comment",
-            "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ursa.png",
+            "author": "Billy Li",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Idemne potest esse dies saepius, qui semel fuit? Duo Reges: constructio interrete. Et ille ridens: Video, inquit, quid agas;",
+            "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man.png",
             "timeStamp": "5h"
             },
             {
-             "author": "Elena Nugumanova",
-             "text": "uu",
-            "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ursa.png",
+             "author": "Jane Smith",
+             "text": "Duo Reges: constructio interrete. Sequitur disserendi ratio cognitioque naturae; Non est igitur voluptas bonum. Deprehensus omnem poenam contemnet.",
+            "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/woman.png",
             "timeStamp": "5h"
             }]
   },
     {
-    "author": "Roma Storm",
+    "author": "Jane Smith",
     "authorId": "12345ee6",
-    "postText": "Post q2!  component is first created, we want to GET some JSON  component is first created, we want to GET some JSON",
-    "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Guru%20Pathik.png",
+    "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Itaque fecimus. Illi enim inter se dissentiunt. Nihil enim hoc differt. Et nemo nimium beatus est; Non est igitur summum malum dolor",
+    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/woman.png",
     "timeStamp": "5h",
     "id": "2",
-    "numberOfComments": "2",
     "comments" : [{
-            "author": "Ilmira Nugumanova",
-            "text": "Normal comment",
-            "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ursa.png",
+            "author": "Billy Li",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Idemne potest esse dies saepius, qui semel fuit? Duo Reges: constructio interrete. Et ille ridens: Video, inquit, quid agas;",
+            "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man.png",
             "timeStamp": "5h"
             }]
 
   },
-
-      {
-    "author": "Pelmeni",
+{
+    "author": "Billy Li",
     "authorId": "1234564",
-    "postText": "Post q2!  component is first created, we want to GET some JSON  component is first created, we want to GET some JSON",
-    "iconUrl": "http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Guru%20Pathik.png",
-    "timeStamp": "5h",
-    "id": "2",
-    "numberOfComments": "2",
+    "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nondum autem explanatum satis, erat, quid maxime natura vellet. Tum Quintus: Est plane, Piso, ut dicis, inquit. Quae cum dixisset paulumque institisset, Quid est? Beatus autem esse in maximarum rerum timore nemo potest. Duo Reges: constructio interrete. Si enim ad populum me vocas, eum. Sed tamen intellego quid velit. Ex rebus enim timiditas, non ex vocabulis nascitur.",
+    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man.png",
+    "timeStamp": "6h",
+    "id": "3",
+     "comments" : []
+  },
+   {
+    "author": "John Smith",
+    "authorId": "123456",
+    "postText": "At iam decimum annum in spelunca iacet. Quam ob rem tandem, inquit, non satisfacit? Quid enim est a Chrysippo praetermissum in Stoicis? Quamquam haec quidem praeposita recte et reiecta dicere licebit. Utram tandem linguam nescio? Suo enim quisque studio maxime ducitur.",
+    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man2.png",
+    "timeStamp": "2d",
+    "id": "4",
+    "comments" : [{
+            "author": "Jane Smith",
+            "text": "An ea, quae per vinitorem antea consequebatur, per se ipsa curabit? Quid de Platone aut de Democrito loquar? Et ille ridens: Video, inquit, quid agas; Cum id fugiunt, re eadem defendunt, quae Peripatetici, verba.",
+            "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/woman.png",
+            "timeStamp": "5h"
+            }]
+  },
+  {
+    "author": "Billy Li",
+    "authorId": "1234564",
+    "postText": "Tamen a proposito, inquam, aberramus. Sed ego in hoc resisto; Eadem nunc mea adversum te oratio est. Quod equidem non reprehendo; At iam decimum annum in spelunca iacet. Quod mihi quidem visus est, cum sciret, velle tamen confitentem audire Torquatum. Optime, inquam.",
+    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man.png",
+    "timeStamp": "6d",
+    "id": "6",
      "comments" : []
   }
 ]

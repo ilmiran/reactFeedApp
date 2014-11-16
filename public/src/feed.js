@@ -39,7 +39,6 @@ var DetailView = React.createClass({
       var feedItem = this.props.feedItem;
         return (
        <div><FeedItem feed={feedItem}>
-          {feedItem.timeStamp}
        </FeedItem>
        <CommentBox update={this.update} feedItem={feedItem} url="posts"/></div>
         );
@@ -162,7 +161,7 @@ var FeedItem = React.createClass({
           <img src={this.props.feed.iconUrl}/> 
           {this.props.feed.author}
           </div>
-        {this.props.feed.timeStamp}
+        {this.props.feed.timeStamp} ago
         <br/>
         {this.props.feed.postText}
         <br/>
@@ -232,8 +231,8 @@ var Comment = React.createClass({
 
 var currentUser= {
                 userId: '123456',
-                userIcon: 'http://files.softicons.com/download/culture-icons/avatar-minis-icons-by-joumana-medlej/png/32x32/Ty%20Lee.png',
-                userName: 'Mira Storm'
+                userIcon: 'http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man2.png',
+                userName: 'Jhon Smith'
               };
 React.render(
    <App/>,

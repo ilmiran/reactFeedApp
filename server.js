@@ -13,22 +13,9 @@ app.get('/posts', function(req, res) {
   res.send(JSON.stringify(posts));
 });
 
-var comments = JSON.parse(fs.readFileSync('comments.json'))
-
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-app.get('/comments.json', function(req, res) {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify(comments));
-});
-
-app.post('/comments.json', function(req, res) {
-  comments.push(req.body);
-  res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify(comments));
-});
 
 app.post('/posts/:id', function(req, res) {
   var post = posts.filter(function(post){

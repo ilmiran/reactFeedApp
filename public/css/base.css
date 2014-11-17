@@ -24,7 +24,6 @@ header img {
 	padding:6px 8px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #528ecc;
-	margin: 8px 0px 8px 15px;
 }
 header button:hover {
 	background-color:transparent;
@@ -53,11 +52,12 @@ div.feedItemContainer {
 }
 div.postAuthor{
 	font-weight: bold;
-	margin: 8px 0px 8px 15px;
+	margin: 8px 0px 8px 8px;
 }
 input.customButton {
 	color: black;
 	float: right;
+  min-width: 20%;
 }
 .comentsLink {
     text-align : right;
@@ -69,3 +69,21 @@ input.customButton {
 	background-color: #CCFFCC;
 	margin: 2px 8px 2px 8px;
 }
+.timeStamp {
+  font-weight: normal;
+  color: gray;
+  margin-left: 32px;
+}
+  
+input.textInput{
+    padding-top: 8px;
+    font: inherit;
+    color: inherit;
+    background: none;
+    float: left;
+    width: 75%;
+}
+input{
+    display:inline-block;
+}
+

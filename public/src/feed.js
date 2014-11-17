@@ -14,15 +14,21 @@ var App = React.createClass({
   handleNewComment: function(item) {
     this.setState({selectedFeed : item});
   },
+  handleScroll: function(e){
+  var header = this.root.querySelector('.header');
+  var origOffsetY = header.offsetTop;
+  window.scrollY >= origOffsetY ? header.addClass('sticky'): header.removeClass('sticky');
+  },
   render: function() {
     var userIcon = currentUser.userIcon;
+    var backButtonStyle = {'margin' : 8};
     return (
       <div> 
-      <header>
-        {!this.state.mainView ? <button onClick={this.handleBackButtonClick} className="customButton">Back</button> : null } 
+      <header className="header">
+        {!this.state.mainView ? <button style={backButtonStyle} onClick={this.handleBackButtonClick} className="customButton">Back</button> : null } 
         <img src={userIcon}/>
       </header>
-      <div>     
+      <div onScroll={this.handleScroll}>     
           {this.state.mainView ?
           <Feed url="posts" handleClick={this.handleFeedClick}/> : <DetailView handleNewComment={this.handleNewComment} feedItem={this.state.selectedFeed}/>}
           </div>
@@ -38,8 +44,7 @@ var DetailView = React.createClass({
     render: function() {
       var feedItem = this.props.feedItem;
         return (
-       <div><FeedItem feed={feedItem}>
-       </FeedItem>
+       <div><FeedItem feed={feedItem} detailView={true}/>
        <CommentBox update={this.update} feedItem={feedItem} url="posts"/></div>
         );
     }
@@ -77,12 +82,19 @@ var DetailView = React.createClass({
 });
 
 var DeleteButton = React.createClass({
-    whenClickedDelete: function() {
-      this.props.handleDelete();
+    whenClickedDelete: function() {     
+      var answer = window.confirm("Are you sure?");
+      if(answer){
+        this.props.handleDelete();
+      }
+      // this.setState({promptDelete: true});
+    },
+    getInitialState: function() {
+      return {promptDelete: false};
     },
     render: function() {
         var deleteNode = ((currentUser.userId==this.props.feed.authorId) ? <button className="deleteButton"  onClick={this.whenClickedDelete}>x</button>: null);
-        return ( deleteNode );
+        return (deleteNode);
     }
 });
 
@@ -107,9 +119,10 @@ var Feed = React.createClass({
     this.loadFeedItemFromServer();
   },
   whenClicked: function(feedItem) {
-    this.props.handleClick(feedItem);
+      this.props.handleClick(feedItem);
   },
   onDelete: function(feedItem) {
+
     var id = feedItem.id; 
     this.setState(null, function() {
       $.ajax({
@@ -131,10 +144,12 @@ var Feed = React.createClass({
     var feedItemNodes = this.state.data.map(function (feedItem) {
       return (
         <div>
+        
         <FeedItem whenClicked={self.whenClicked.bind(null,feedItem)} onDelete={self.onDelete.bind(null,feedItem)}
-         feed={feedItem}>
-        </FeedItem>
+         feed={feedItem}/>
+       
         </div>
+      
       );
     });
     return (
@@ -153,19 +168,22 @@ var FeedItem = React.createClass({
     this.props.whenClicked();
   },
   render: function() {
-    var commentCount= this.props.feed.comments.length;
+    var commentCount= this.props.feed.comments.length; 
     return (
       <div className="feedItemContainer">
+        { this.props.detailView ? null :
         <DeleteButton handleDelete={this.handleDelete} currentPostAuthorId={this.props.authorId} feed={this.props.feed}/>
+        }
         <div className="postAuthor">
           <img src={this.props.feed.iconUrl}/> 
           {this.props.feed.author}
-          </div>
-        {this.props.feed.timeStamp} ago
-        <br/>
+          <div className="timeStamp">{this.props.feed.timeStamp} ago</div>
+      </div>
         {this.props.feed.postText}
         <br/>
+        { this.props.detailView ? null :
         <p onClick={this.handleClick} className="comentsLink"> {commentCount} {(commentCount>0 && commentCount<=1) ? "Comment" : "Comments"}</p>
+      }
       </div>
     );
   }
@@ -191,8 +209,10 @@ var CommentForm = React.createClass({
   render: function() {
     return (
       <form className="commentForm" onSubmit={this.handleSubmit} onInput={this.onInput}>
-        <input type="text" placeholder="Write a comment.." ref="text" />
+        <div>
+        <input type="text" placeholder="Write a comment.." ref="text" className="textInput customButton"/>
         <input type="submit" className="customButton postButton" value="Post" disabled="true" ref="post"/>
+        </div>
       </form>
     );
   }

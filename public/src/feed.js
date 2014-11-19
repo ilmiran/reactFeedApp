@@ -251,7 +251,7 @@ var Comment = React.createClass({
 
 var currentUser= {
                 userId: '123456',
-                userIcon: 'http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man2.png',
+                userIcon: 'http://localhost:3000/images/man2.png',
                 userName: 'Jhon Smith'
               };
 React.render(

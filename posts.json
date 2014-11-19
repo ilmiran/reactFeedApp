@@ -3,19 +3,19 @@
     "author": "John Smith",
     "authorId": "123456",
     "postText": "Haec bene dicuntur, nec ego repugno, sed inter sese ipsa pugnant. Memini me adesse P. Summum ením bonum exposuit vacuitatem doloris; Ex ea difficultate illae fallaciloquae, ut ait Accius, malitiae natae sunt. Quae quo sunt excelsiores, eo dant clariora indicia naturae. An ea, quae per vinitorem antea consequebatur, per se ipsa curabit?",
-    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man2.png",
+    "iconUrl": "http://localhost:3000/images/man2.png",
     "timeStamp": "5h",
     "id": "1",
     "comments" : [{
             "author": "Billy Li",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Idemne potest esse dies saepius, qui semel fuit? Duo Reges: constructio interrete. Et ille ridens: Video, inquit, quid agas;",
-            "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man.png",
+            "iconUrl": "http://localhost:3000/images/man.png",
             "timeStamp": "5h"
             },
             {
              "author": "Jane Smith",
              "text": "Duo Reges: constructio interrete. Sequitur disserendi ratio cognitioque naturae; Non est igitur voluptas bonum. Deprehensus omnem poenam contemnet.",
-            "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/woman.png",
+            "iconUrl": "http://localhost:3000/images/woman.png",
             "timeStamp": "5h"
             }]
   },
@@ -23,13 +23,13 @@
     "author": "Jane Smith",
     "authorId": "12345ee6",
     "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Itaque fecimus. Illi enim inter se dissentiunt. Nihil enim hoc differt. Et nemo nimium beatus est; Non est igitur summum malum dolor",
-    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/woman.png",
+    "iconUrl": "http://localhost:3000/images/woman.png",
     "timeStamp": "5h",
     "id": "2",
     "comments" : [{
             "author": "Billy Li",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Idemne potest esse dies saepius, qui semel fuit? Duo Reges: constructio interrete. Et ille ridens: Video, inquit, quid agas;",
-            "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man.png",
+            "iconUrl": "http://localhost:3000/images/man.png",
             "timeStamp": "5h"
             }]
 
@@ -38,7 +38,7 @@
     "author": "Billy Li",
     "authorId": "1234564",
     "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nondum autem explanatum satis, erat, quid maxime natura vellet. Tum Quintus: Est plane, Piso, ut dicis, inquit. Quae cum dixisset paulumque institisset, Quid est? Beatus autem esse in maximarum rerum timore nemo potest. Duo Reges: constructio interrete. Si enim ad populum me vocas, eum. Sed tamen intellego quid velit. Ex rebus enim timiditas, non ex vocabulis nascitur.",
-    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man.png",
+    "iconUrl": "http://localhost:3000/images/man.png",
     "timeStamp": "6h",
     "id": "3",
      "comments" : []
@@ -47,13 +47,13 @@
     "author": "John Smith",
     "authorId": "123456",
     "postText": "At iam decimum annum in spelunca iacet. Quam ob rem tandem, inquit, non satisfacit? Quid enim est a Chrysippo praetermissum in Stoicis? Quamquam haec quidem praeposita recte et reiecta dicere licebit. Utram tandem linguam nescio? Suo enim quisque studio maxime ducitur.",
-    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man2.png",
+    "iconUrl": "http://localhost:3000/images/man2.png",
     "timeStamp": "2d",
     "id": "4",
     "comments" : [{
             "author": "Jane Smith",
             "text": "An ea, quae per vinitorem antea consequebatur, per se ipsa curabit? Quid de Platone aut de Democrito loquar? Et ille ridens: Video, inquit, quid agas; Cum id fugiunt, re eadem defendunt, quae Peripatetici, verba.",
-            "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/woman.png",
+            "iconUrl": "http://localhost:3000/images/woman.png",
             "timeStamp": "5h"
             }]
   },
@@ -61,7 +61,7 @@
     "author": "Billy Li",
     "authorId": "1234564",
     "postText": "Tamen a proposito, inquam, aberramus. Sed ego in hoc resisto; Eadem nunc mea adversum te oratio est. Quod equidem non reprehendo; At iam decimum annum in spelunca iacet. Quod mihi quidem visus est, cum sciret, velle tamen confitentem audire Torquatum. Optime, inquam.",
-    "iconUrl": "http://files.softicons.com/download/business-icons/pretty-office-iv-icons-by-custom-icon-design/png/32/man.png",
+    "iconUrl": "http://localhost:3000/images/man.png",
     "timeStamp": "6d",
     "id": "6",
      "comments" : []

@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var posts = JSON.parse(fs.readFileSync('posts.json'))
-console.log(posts);
 
 app.get('/posts', function(req, res) {
   res.setHeader('Content-Type', 'application/json');

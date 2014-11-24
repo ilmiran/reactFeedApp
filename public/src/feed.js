@@ -140,8 +140,8 @@ var Feed = React.createClass({
     });
   },
   handlePostSubmit: function(post) { 
-    var data = this.state.data;
-    var newPost = {postText: post.text, id: data.length, comments: [], author: currentUser.userName, authorId: currentUser.userId, iconUrl: currentUser.userIcon, timeStamp: "1m"};
+    var data = this.state.data; 
+    var newPost = {postText: post.text, id: data.length+2, comments: [], author: currentUser.userName, authorId: currentUser.userId, iconUrl: currentUser.userIcon, timeStamp: "1m"};
     data.push(newPost);
     this.setState({data: data});
   },
@@ -223,16 +223,9 @@ var FeedItem = React.createClass({
 });
 
 var CommentForm = React.createClass({
-  getDefaultProps: function(){
-    return {
-      onSubmit:function(){
-        console.log('overwrite me');}
-    }
-  },
   handleSubmit: function(e) {
     e.preventDefault(); 
-    this.props.onSubmit(this.refs.text.getDOMNode().value.trim());
-    /*
+    this.props.onCommentSubmit(this.refs.text.getDOMNode().value.trim());
     var author = currentUser.userName;
     var iconUrl = currentUser.userIcon;
     var text = this.refs.text.getDOMNode().value.trim();
@@ -241,8 +234,6 @@ var CommentForm = React.createClass({
     }
     this.props.onCommentSubmit({author: author, text: text, iconUrl: iconUrl});
     this.refs.text.getDOMNode().value = '';
-    */
-    return;
   },
   onInput: function(e) {
     e.preventDefault();

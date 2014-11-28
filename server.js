@@ -25,7 +25,10 @@ app.get('/posts.json', function(req, res) {
 });
 
 app.post('/posts.json', function(req, res) {
-  posts.push(req.body);
+  var newPost = req.body;
+  newPost.comments = [];
+  newPost.id = Math.floor((Math.random() * 20) + 6);;
+  posts.push(newPost);
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(posts));
 });

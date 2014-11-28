@@ -108,7 +108,7 @@ var DeleteButton = React.createClass({
 var Feed = React.createClass({
     loadFeedItemFromServer: function() {
     $.ajax({
-      url: this.props.url + '',
+      url: this.props.url,
       dataType: 'json',
       success: function(data) {
         this.setState({data: data});
@@ -137,7 +137,30 @@ var Feed = React.createClass({
         type: 'DELETE',
         data: feedItem,
         success: function(data) {
-          this.setState({data: data});
+           this.setState({data: data});
+        }.bind(this),
+        error: function(xhr, status, err) {
+          console.error(this.props.url, status, err.toString());
+        }.bind(this)
+      });
+    });
+  },
+  handlePostSubmit: function(post){
+    var newPost =   {
+    author: currentUser.userName,
+    authorId: currentUser.userId,
+    postText: post.text,
+    iconUrl: currentUser.userIcon,
+    timeStamp: "1m"
+  };
+    this.setState(null, function() {
+      $.ajax({
+        url: this.props.url,
+        dataType: 'json',
+        type: 'POST',
+        data: newPost,
+        success: function(data) {
+          this.replaceState({data: data});
         }.bind(this),
         error: function(xhr, status, err) {
           console.error(this.props.url, status, err.toString());
@@ -153,7 +176,6 @@ var Feed = React.createClass({
         
         <FeedItem whenClicked={self.whenClicked.bind(null,feedItem)} onDelete={self.onDelete.bind(null,feedItem)}
          feed={feedItem}/>
-       
         </div>
       
       );
@@ -161,6 +183,7 @@ var Feed = React.createClass({
     return (
       <div className="feedList">
         {feedItemNodes}
+        <CommentForm onCommentSubmit={this.handlePostSubmit}/>
       </div>
     );
   }

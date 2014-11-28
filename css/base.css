@@ -1,36 +1,36 @@
 header {
-	 height: 48px;
+   height: 48px;
      background-color: #0099CC;
      margin-bottom: 8px;
 }
 
 header img {
-	float: right;
-	margin: 8px 15px 8px 0px;
+  float: right;
+  margin: 8px 15px 8px 0px;
 }
 
 .customButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-	background-color:transparent;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #84bbf3;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	padding:6px 8px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+  -moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+  box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+  background-color:transparent;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #84bbf3;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  padding:6px 8px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #528ecc;
 }
 header button:hover {
-	background-color:transparent;
+  background-color:transparent;
 }
 header button:active {
-	position:relative;
-	top:1px;
+  position:relative;
+  top:1px;
 }
 
 body {
@@ -43,20 +43,20 @@ body {
 }
 
 div.feedItemContainer {
-	border: solid;
+  border: solid;
     margin: 4px 8px 0px 8px;
 }
 .deleteButton {
-	float: right;
-	margin: 15px 15px 0px 0px;
+  float: right;
+  margin: 15px 15px 0px 0px;
 }
 div.postAuthor{
-	font-weight: bold;
-	margin: 8px 0px 8px 8px;
+  font-weight: bold;
+  margin: 8px 0px 8px 8px;
 }
 input.customButton {
-	color: black;
-	float: right;
+  color: black;
+  float: right;
   min-width: 20%;
 }
 .comentsLink {
@@ -66,8 +66,8 @@ input.customButton {
     text-decoration: underline;
 }
 .coment {
-	background-color: #CCFFCC;
-	margin: 2px 8px 2px 8px;
+  background-color: #CCFFCC;
+  margin: 2px 8px 2px 8px;
 }
 .timeStamp {
   font-weight: normal;

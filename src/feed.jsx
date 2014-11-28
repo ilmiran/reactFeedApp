@@ -1,3 +1,9 @@
+/**
+ * @jsx React.DOM
+ */
+var $ = require('jquery');
+var React = require('react');
+
 var App = React.createClass({
   getInitialState: function() {
       return {mainView: true,
@@ -30,7 +36,7 @@ var App = React.createClass({
       </header>
       <div onScroll={this.handleScroll}>     
           {this.state.mainView ?
-          <Feed url="posts" handleClick={this.handleFeedClick}/> : <DetailView handleNewComment={this.handleNewComment} feedItem={this.state.selectedFeed}/>}
+          <Feed url={posts} handleClick={this.handleFeedClick}/> : <DetailView handleNewComment={this.handleNewComment} feedItem={this.state.selectedFeed}/>}
           </div>
       </div>
     );
@@ -45,7 +51,7 @@ var DetailView = React.createClass({
       var feedItem = this.props.feedItem;
         return (
        <div><FeedItem feed={feedItem} detailView={true}/>
-       <CommentBox update={this.update} feedItem={feedItem} url="posts"/></div>
+       <CommentBox update={this.update} feedItem={feedItem} url={posts}/></div>
         );
     }
 });
@@ -102,7 +108,7 @@ var DeleteButton = React.createClass({
 var Feed = React.createClass({
     loadFeedItemFromServer: function() {
     $.ajax({
-      url: this.props.url,
+      url: this.props.url + '',
       dataType: 'json',
       success: function(data) {
         this.setState({data: data});
@@ -139,12 +145,6 @@ var Feed = React.createClass({
       });
     });
   },
-  handlePostSubmit: function(post) { 
-    var data = this.state.data; 
-    var newPost = {postText: post.text, id: data.length+2, comments: [], author: currentUser.userName, authorId: currentUser.userId, iconUrl: currentUser.userIcon, timeStamp: "1m"};
-    data.push(newPost);
-    this.setState({data: data});
-  },
   render: function() {
     var self = this;
     var feedItemNodes = this.state.data.map(function (feedItem) {
@@ -153,6 +153,7 @@ var Feed = React.createClass({
         
         <FeedItem whenClicked={self.whenClicked.bind(null,feedItem)} onDelete={self.onDelete.bind(null,feedItem)}
          feed={feedItem}/>
+       
         </div>
       
       );
@@ -160,38 +161,10 @@ var Feed = React.createClass({
     return (
       <div className="feedList">
         {feedItemNodes}
-         <PostButton onPostSubmit={this.handlePostSubmit}/>
       </div>
     );
   }
 });
-
-var PostButton = React.createClass({
-    getDefaultProps: function() {
-      return {onPostSubmit: function(){console.log('override me')}};
-    },
-    handlePost: function(e){
-    e.preventDefault(); 
-    
-    var text = this.refs.text.getDOMNode().value.trim();
-    if (!text) {
-      return;
-    }
-    this.props.onPostSubmit({text: text});
-    this.refs.text.getDOMNode().value = '';
-    
-    return;
-  },
-    render: function(){
-      return(      
-        <form className="commentForm" onSubmit={this.handlePost}>
-        <div>
-        <input type="text" placeholder="Write a Post.." ref="text" className="textInput customButton"/>
-        <input type="submit" className="customButton postButton" value="Post" ref="post"/>
-        </div>
-      </form>);
-    }
-  });
 
 var FeedItem = React.createClass({
   handleDelete: function() {
@@ -225,7 +198,6 @@ var FeedItem = React.createClass({
 var CommentForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault(); 
-    this.props.onCommentSubmit(this.refs.text.getDOMNode().value.trim());
     var author = currentUser.userName;
     var iconUrl = currentUser.userIcon;
     var text = this.refs.text.getDOMNode().value.trim();
@@ -234,6 +206,7 @@ var CommentForm = React.createClass({
     }
     this.props.onCommentSubmit({author: author, text: text, iconUrl: iconUrl});
     this.refs.text.getDOMNode().value = '';
+    return;
   },
   onInput: function(e) {
     e.preventDefault();
@@ -282,11 +255,13 @@ var Comment = React.createClass({
   }
 });
 
+var posts  = 'http://localhost:3001/posts.json';
 var currentUser= {
                 userId: '123456',
                 userIcon: 'http://localhost:3000/images/man2.png',
                 userName: 'Jhon Smith'
               };
+
 React.render(
    <App/>,
   document.getElementById('content')

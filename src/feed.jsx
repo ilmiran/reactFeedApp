@@ -3,6 +3,7 @@
  */
 var $ = require('jquery');
 var React = require('react');
+var Alert = require('react-bootstrap/Alert');
 
 var App = React.createClass({
   getInitialState: function() {
@@ -21,17 +22,16 @@ var App = React.createClass({
     this.setState({selectedFeed : item});
   },
   handleScroll: function(e){
-  var header = this.root.querySelector('.header');
+  var header = this.root.querySelector('.page-header');
   var origOffsetY = header.offsetTop;
   window.scrollY >= origOffsetY ? header.addClass('sticky'): header.removeClass('sticky');
   },
   render: function() {
     var userIcon = currentUser.userIcon;
-    var backButtonStyle = {'margin' : 8};
     return (
-      <div> 
-      <header className="header">
-        {!this.state.mainView ? <button style={backButtonStyle} onClick={this.handleBackButtonClick} className="customButton">Back</button> : null } 
+      <div className="main"> 
+      <header className="page-header image">
+        {!this.state.mainView ? <button onClick={this.handleBackButtonClick} className="btn btn-default span2"><span aria-hidden="true">&larr;</span> Back</button> : null } 
         <img src={userIcon}/>
       </header>
       <div onScroll={this.handleScroll}>     
@@ -49,8 +49,8 @@ var DetailView = React.createClass({
     },
     render: function() {
       var feedItem = this.props.feedItem;
-        return (
-       <div><FeedItem feed={feedItem} detailView={true}/>
+        return (<div>
+       <div className="card"><FeedItem feed={feedItem} detailView={true}/></div>
        <CommentBox update={this.update} feedItem={feedItem} url={posts}/></div>
         );
     }
@@ -80,7 +80,7 @@ var DetailView = React.createClass({
   render: function() {
     return (
       <div>
-        <CommentList data={this.props.feedItem.comments} />
+        <CommentList className="card-comments" data={this.props.feedItem.comments} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit}/>
       </div>
     );
@@ -93,13 +93,13 @@ var DeleteButton = React.createClass({
       if(answer){
         this.props.handleDelete();
       }
-      // this.setState({promptDelete: true});
     },
     getInitialState: function() {
       return {promptDelete: false};
     },
     render: function() {
-        var deleteNode = ((currentUser.userId==this.props.feed.authorId) ? <button className="deleteButton"  onClick={this.whenClickedDelete}>x</button>: null);
+        var deleteNode = ((currentUser.userId==this.props.feed.authorId) ? <button className="close"  onClick={this.whenClickedDelete}>&times;
+</button>: null);
         return (deleteNode);
     }
 });
@@ -172,8 +172,7 @@ var Feed = React.createClass({
     var self = this;
     var feedItemNodes = this.state.data.map(function (feedItem) {
       return (
-        <div>
-        
+        <div className="card">     
         <FeedItem whenClicked={self.whenClicked.bind(null,feedItem)} onDelete={self.onDelete.bind(null,feedItem)}
          feed={feedItem}/>
         </div>
@@ -181,7 +180,7 @@ var Feed = React.createClass({
       );
     });
     return (
-      <div className="feedList">
+      <div>
         {feedItemNodes}
         <CommentForm onCommentSubmit={this.handlePostSubmit}/>
       </div>
@@ -203,15 +202,17 @@ var FeedItem = React.createClass({
         { this.props.detailView ? null :
         <DeleteButton handleDelete={this.handleDelete} currentPostAuthorId={this.props.authorId} feed={this.props.feed}/>
         }
-        <div className="postAuthor">
+        <div className="card-heading image">
           <img src={this.props.feed.iconUrl}/> 
-          {this.props.feed.author}
-          <div className="timeStamp">{this.props.feed.timeStamp} ago</div>
+          <div className="card-heading-header">
+          <h3>{this.props.feed.author}</h3>
+          <span>{this.props.feed.timeStamp} ago</span>
+          </div>
       </div>
-        {this.props.feed.postText}
+        <div className="card-body">{this.props.feed.postText}</div>
         <br/>
         { this.props.detailView ? null :
-        <p onClick={this.handleClick} className="comentsLink"> {commentCount} {(commentCount>0 && commentCount<=1) ? "Comment" : "Comments"}</p>
+        <p onClick={this.handleClick} className="card-comments text-right"> {commentCount} {(commentCount>0 && commentCount<=1) ? "Comment" : "Comments"}</p>
       }
       </div>
     );
@@ -237,10 +238,10 @@ var CommentForm = React.createClass({
   },
   render: function() {
     return (
-      <form className="commentForm" onSubmit={this.handleSubmit} onInput={this.onInput}>
+      <form className="input-append" onSubmit={this.handleSubmit} onInput={this.onInput}>
         <div>
-        <input type="text" placeholder="Write a comment.." ref="text" className="textInput customButton"/>
-        <input type="submit" className="customButton postButton" value="Post" disabled="true" ref="post"/>
+        <input type="text" placeholder="Write a comment.." ref="text" className="span10"/>
+        <input type="submit" className="btn btn-default span2" value="Post" disabled="true" ref="post"/>
         </div>
       </form>
     );
@@ -251,7 +252,7 @@ var CommentList = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function (comment) {
       return (
-        <Comment author={comment.author} icon={comment.iconUrl}>
+        <Comment className="card" author={comment.author} icon={comment.iconUrl}>
           {comment.text}
         </Comment>
       );
@@ -267,11 +268,13 @@ var CommentList = React.createClass({
 var Comment = React.createClass({
   render: function() {
     return (
-      <div className="coment"> 
-        <h2 className="commentAuthor">
+      <div className="comments"> 
+        <div className="card-heading image">
           <img src={this.props.icon}/>
-          {this.props.author}
-        </h2>
+          <div className="card-heading-header">
+            <h4>{this.props.author}</h4>
+          </div>
+        </div>
         {this.props.children}
       </div>
     );

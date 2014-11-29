@@ -1,0 +1,90 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '--save', 'bootplus' ]
+2 info using npm@2.1.9
+3 info using node@v0.10.33
+4 verbose node symlink /usr/local/bin/node
+5 warn package.json feedProject@ No README data
+6 warn package.json fs@0.0.2 fs is also the name of a node core module.
+7 warn package.json fs@0.0.2 No description
+8 warn package.json fs@0.0.2 No repository field.
+9 warn package.json fs@0.0.2 No README data
+10 silly cache add args [ 'bootplus', null ]
+11 verbose cache add spec bootplus
+12 silly cache add parsed spec { raw: 'bootplus',
+12 silly cache add   scope: null,
+12 silly cache add   name: 'bootplus',
+12 silly cache add   rawSpec: '',
+12 silly cache add   spec: '*',
+12 silly cache add   type: 'range' }
+13 verbose addNamed bootplus@*
+14 silly addNamed semver.valid null
+15 silly addNamed semver.validRange *
+16 silly addNameRange { name: 'bootplus', range: '*', hasData: false }
+17 silly mapToRegistry name bootplus
+18 silly mapToRegistry using default registry
+19 silly mapToRegistry registry https://registry.npmjs.org/
+20 silly mapToRegistry uri https://registry.npmjs.org/bootplus
+21 verbose addNameRange registry:https://registry.npmjs.org/bootplus not in flight; fetching
+22 verbose request uri https://registry.npmjs.org/bootplus
+23 verbose request no auth needed
+24 info attempt registry request try #1 at 18:22:11
+25 verbose request id 5d2babaf5c2953df
+26 http request GET https://registry.npmjs.org/bootplus
+27 http 404 https://registry.npmjs.org/bootplus
+28 verbose headers { date: 'Sat, 29 Nov 2014 02:22:11 GMT',
+28 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 verbose headers   'content-type': 'application/json',
+28 verbose headers   'cache-control': 'max-age=0',
+28 verbose headers   'content-length': '52',
+28 verbose headers   'accept-ranges': 'bytes',
+28 verbose headers   via: '1.1 varnish',
+28 verbose headers   age: '0',
+28 verbose headers   'x-served-by': 'cache-sjc3128-SJC',
+28 verbose headers   'x-cache': 'MISS',
+28 verbose headers   'x-cache-hits': '0',
+28 verbose headers   'x-timer': 'S1417227731.381088,VS0,VE158',
+28 verbose headers   'keep-alive': 'timeout=10, max=50',
+28 verbose headers   connection: 'Keep-Alive' }
+29 silly get cb [ 404,
+29 silly get   { date: 'Sat, 29 Nov 2014 02:22:11 GMT',
+29 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 silly get     'content-type': 'application/json',
+29 silly get     'cache-control': 'max-age=0',
+29 silly get     'content-length': '52',
+29 silly get     'accept-ranges': 'bytes',
+29 silly get     via: '1.1 varnish',
+29 silly get     age: '0',
+29 silly get     'x-served-by': 'cache-sjc3128-SJC',
+29 silly get     'x-cache': 'MISS',
+29 silly get     'x-cache-hits': '0',
+29 silly get     'x-timer': 'S1417227731.381088,VS0,VE158',
+29 silly get     'keep-alive': 'timeout=10, max=50',
+29 silly get     connection: 'Keep-Alive' } ]
+30 verbose stack Error: 404 Not Found: bootplus
+30 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:232:14)
+30 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+30 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:372:22)
+30 verbose stack     at Request.emit (events.js:98:17)
+30 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1310:14)
+30 verbose stack     at Request.emit (events.js:117:20)
+30 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1258:12)
+30 verbose stack     at IncomingMessage.emit (events.js:117:20)
+30 verbose stack     at _stream_readable.js:943:16
+30 verbose stack     at process._tickCallback (node.js:419:13)
+31 verbose statusCode 404
+32 verbose pkgid bootplus
+33 verbose cwd /Users/inugumanova/Desktop/feedProject
+34 error Darwin 14.0.0
+35 error argv "node" "/usr/local/bin/npm" "install" "--save" "bootplus"
+36 error node v0.10.33
+37 error npm  v2.1.9
+38 error code E404
+39 error 404 Not Found: bootplus
+39 error 404
+39 error 404 'bootplus' is not in the npm registry.
+39 error 404 You should bug the author to publish it (or use the name yourself!)
+39 error 404 It was specified as a dependency of 'feedProject'
+39 error 404
+39 error 404 Note that you can also install from a
+39 error 404 tarball, folder, http url, or git url.
+40 verbose exit [ 1, true ]

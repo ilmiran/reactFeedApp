@@ -1,89 +1,31 @@
 header {
-   height: 48px;
-     background-color: #0099CC;
-     margin-bottom: 8px;
+  height: 50px;
+  background-color: #253939;
 }
 
-header img {
+header img{
   float: right;
-  margin: 8px 15px 8px 0px;
+  margin: 10px 15px 10px 0px;
 }
 
-.customButton {
-  -moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-  -webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-  box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-  background-color:transparent;
-  -moz-border-radius:6px;
-  -webkit-border-radius:6px;
-  border-radius:6px;
-  border:1px solid #84bbf3;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  padding:6px 8px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #528ecc;
-}
-header button:hover {
-  background-color:transparent;
-}
-header button:active {
-  position:relative;
-  top:1px;
-}
-
-body {
-  background: #fff;
+.main {
+  background-color: #558188;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
   font-size: 15px;
   line-height: 1;
   margin: 0;
   padding: 30px;
 }
-
-div.feedItemContainer {
-  border: solid;
-    margin: 4px 8px 0px 8px;
-}
-.deleteButton {
-  float: right;
+.close {
   margin: 15px 15px 0px 0px;
 }
-div.postAuthor{
-  font-weight: bold;
-  margin: 8px 0px 8px 8px;
-}
-input.customButton {
-  color: black;
-  float: right;
-  min-width: 20%;
-}
-.comentsLink {
-    text-align : right;
+
+.card-comments {
     color : #003399;
-    margin-right: 8px;
     text-decoration: underline;
 }
-.coment {
-  background-color: #CCFFCC;
-  margin: 2px 8px 2px 8px;
-}
-.timeStamp {
-  font-weight: normal;
-  color: gray;
-  margin-left: 32px;
-}
-  
-input.textInput{
-    padding-top: 8px;
-    font: inherit;
-    color: inherit;
-    background: none;
-    float: left;
-    width: 75%;
-}
-input{
-    display:inline-block;
-}
 
+.comments {
+  background-color: #CCFFCC;
+  margin: 2px 0px 8px 0px;
+}
